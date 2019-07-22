@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.539
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SSISTest", "SSISTest.dtproj", "{05DCDC13-DEDF-47CE-B564-A826111A76CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05DCDC13-DEDF-47CE-B564-A826111A76CA}.Development|Default.ActiveCfg = Development
+		{05DCDC13-DEDF-47CE-B564-A826111A76CA}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7624D36B-2349-4AAA-BB8B-F28C2A5CEFFB}
+	EndGlobalSection
+EndGlobal
