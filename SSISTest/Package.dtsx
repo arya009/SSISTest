@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{411D8E30-C967-484D-BAE1-148ACAF1182B}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{E296634D-F8BA-40C6-9349-05093402DBF0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAx8vEAUO5k0mtK40bOVW5kAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAChGTf7WHkvAKX8vDTJqjhjtqzoaO3PdNPI/571RkGDswAAAAAOgAAAAAIAACAAAAA550seJWTVb9MADKzH5I54jdZmiZpTlNai4i9+YfP0VhAAAACCQJpt48K8rupEughE3zHIQAAAALFZQdgrlUjnyER2CMWix4jrvqxuqi/DLjB2DmbNJ3GiYWDvw5mwG8rDVoH7+5TJzrd475NKScR4o8JPSIfSMLw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAx8vEAUO5k0mtK40bOVW5kAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABR/xkdrJxh+JyvkGJnee9J09cDR4k1S9w8r8L4LYtMlwAAAAAOgAAAAAIAACAAAABT12JZd4abSI7wdFt0InK9Vs8pAV8T5P2hETxcZ9sK1xAAAADxy6BmamDFaWmWnbV6hBRBQAAAAEXhasCRC4D5xCXrTwzKL1eKGdSjVyaoLa2rCieS20pxERqTZ3kzDZNy087SetNF5aN/yps6ayF/UwE1HNso9Tg</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -64,6 +64,18 @@
           SQLTask:SqlStatementSource="Select GetDate()" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Web Service Task"
+      DTS:CreationName="Microsoft.WebServiceTask"
+      DTS:Description="Web Service Task"
+      DTS:DTSID="{60BB6010-EF6D-481F-AB68-42CA91E5BFB0}"
+      DTS:ExecutableType="Microsoft.WebServiceTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Web Service Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData />
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -74,6 +86,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{C14B34AA-D4DA-43AE-B33C-66396142BBB2}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Web Service Task" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -86,15 +106,15 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="170,42"
-          Id="Package\Execute SQL Task"
-          TopLeft="5.5,5.5" />
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="155,42"
           Id="Package\Data Flow Task"
           TopLeft="53,106" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="90.5,47.5">
@@ -121,6 +141,44 @@
                     Point3="40,33.25" />
                   <mssgle:LineSegment
                     End="40,51" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Web Service Task"
+          TopLeft="169,209" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="130.5,148">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="122.5,61"
+              Start="0,0"
+              End="122.5,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="118.5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="118.5,30.5"
+                    Point2="122.5,30.5"
+                    Point3="122.5,34.5" />
+                  <mssgle:LineSegment
+                    End="122.5,53.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
